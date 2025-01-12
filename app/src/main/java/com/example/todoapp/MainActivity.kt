@@ -1,6 +1,8 @@
 package com.example.todoapp
 
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -18,31 +20,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-//        setContent {
-//            TodoAppTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Greeting(
-//                        name = "Teste",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-//                }
-//            }
-//        }
+
+        val titulo = findViewById<TextView>(R.id.titulo)
+        var texto: String = "Mudou texto"
+
+        buh(titulo)
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TodoAppTheme {
-        Greeting("Android")
-    }
+fun buh(temp: TextView) {
+    temp.text = "buh"
 }
