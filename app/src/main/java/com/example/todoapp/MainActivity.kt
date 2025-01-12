@@ -28,6 +28,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+class teste(
+    var nome : String
+)
 fun buh(temp: TextView) {
-    temp.text = "buh"
+    val objeto = teste("Breno")
+    temp.text = objeto.nome
 }
