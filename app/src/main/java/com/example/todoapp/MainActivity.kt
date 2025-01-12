@@ -22,16 +22,23 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
 
         val titulo = findViewById<TextView>(R.id.titulo)
-        var texto: String = "Mudou texto"
 
         buh(titulo)
     }
 }
 
-class teste(
-    var nome : String
+data class Todo(
+    var id: Int,
+    var titulo: String,
+    var descricao: String,
+    var concluido: Boolean
 )
+
+val tarefa = mutableListOf<Todo>()
+
 fun buh(temp: TextView) {
-    val objeto = teste("Breno")
-    temp.text = objeto.nome
+    tarefa.add(Todo(0,"Codar","codar o projeto",false))
+    val ligma = tarefa[0]
+
+    temp.text = ligma.descricao
 }
