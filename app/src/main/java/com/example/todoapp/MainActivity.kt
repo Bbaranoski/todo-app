@@ -21,7 +21,6 @@ import com.example.todoapp.ui.theme.TodoAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
         // botão que troca para a tela input
@@ -32,16 +31,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-// object constructor das tarefas criadas
-data class Todo(
-    var id: Int,
-    var titulo: String,
-    var descricao: String,
-    var concluido: Boolean
-)
-// array de objetos
-val tarefa = mutableListOf<Todo>()
-
-
 
