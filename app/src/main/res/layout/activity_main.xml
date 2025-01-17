@@ -9,6 +9,7 @@
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginM"
         android:text="To Do"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,10 +17,10 @@
 
     <Button
         android:id="@+id/add"
-        android:layout_width="69dp"
-        android:layout_height="64dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="@dimen/paddingS"
+        android:layout_height="@dimen/paddingS"
+        android:layout_marginEnd="@dimen/marginM"
+        android:layout_marginBottom="@dimen/marginM"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

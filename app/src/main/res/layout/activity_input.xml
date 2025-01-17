@@ -9,17 +9,20 @@
 
     <Button
         android:id="@+id/confirmar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_width="@dimen/paddingM"
+        android:layout_height="@dimen/paddingS"
+        android:layout_marginEnd="@dimen/marginM"
+        android:layout_marginBottom="@dimen/marginM"
         android:text="Confirmar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/cancelar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/paddingM"
+        android:layout_height="@dimen/paddingS"
+        android:layout_marginStart="@dimen/marginM"
+        android:layout_marginBottom="@dimen/marginM"
         android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -28,6 +31,7 @@
         android:id="@+id/tituloInput"
         android:layout_width="264dp"
         android:layout_height="63dp"
+        android:layout_marginTop="@dimen/marginM"
         android:ems="10"
         android:hint="Título"
         android:inputType="text"
