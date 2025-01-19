@@ -1,0 +1,35 @@
+package com.example.todoapp
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Switch
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.todoapp.models.todo
+
+class Adapter(
+    private val data: List<todo>
+): RecyclerView.Adapter<Adapter.itemView>() {
+
+    inner class itemView(view: View): RecyclerView.ViewHolder(view){
+        val titulo = view.findViewById<TextView>(R.id.listaTitulo)
+        val feito = view.findViewById<Switch>(R.id.listaFeito)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): itemView {
+        val inflated = LayoutInflater.from(parent.context).inflate(R.layout.lista, parent, false)
+        return itemView(inflated)
+    }
+
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
+    override fun onBindViewHolder(holder: itemView, position: Int) {
+        val Todo: todo = data[position]
+
+        holder.titulo.text = Todo.titulo
+        //holder.feito = Todo.concluido
+    }
+}

@@ -5,18 +5,10 @@ import android.os.Bundle
 import android.provider.Telephony.Mms.Intents
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.todoapp.ui.theme.TodoAppTheme
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.todoapp.models.tarefa
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +21,12 @@ class MainActivity : ComponentActivity() {
             val intent = Intent(this, Input::class.java)
             startActivity(intent)
         }
+
+        // conectando o recycler com o layout e a lista
+        val recycler = findViewById<RecyclerView>(R.id.recyclerView)
+        recycler.adapter = Adapter(tarefa)
+        recycler.layoutManager = LinearLayoutManager(this)
+        recycler.layoutManager = LinearLayoutManager(this)
     }
 }
 

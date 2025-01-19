@@ -20,7 +20,6 @@ class Input : ComponentActivity() {
         val confirmar = findViewById<Button>(R.id.confirmar)
         confirmar.setOnClickListener {
             val tempTitulo = tituloInput.text.toString()
-
             val tempDescricao = descricaoInput.text.toString()
 
             tarefa.add(todo(id, tempTitulo, tempDescricao, false))

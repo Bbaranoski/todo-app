@@ -4,4 +4,5 @@
     <dimen name="marginM">24dp</dimen>
     <dimen name="paddingS">64dp</dimen>
     <dimen name="paddingM">128dp</dimen>
+    <dimen name="h1">36sp</dimen>
 </resources>
