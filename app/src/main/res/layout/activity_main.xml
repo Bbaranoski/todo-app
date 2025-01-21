@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     android:background="@color/blueBG">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"/>
+
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
@@ -33,14 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1"/>
+        app:layout_constraintTop_toTopOf="@+id/guide10" />
 
     <ImageButton
         android:id="@+id/botaoCima"
@@ -48,9 +55,28 @@
         android:layout_height="@dimen/paddingS"
         android:contentDescription="Toogle aba de cima"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintBottom_toTopOf="@+id/guide10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
          />
+
+    <LinearLayout
+        android:id="@+id/abaClima"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/blueBGforte"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/guide90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/hora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="hora" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

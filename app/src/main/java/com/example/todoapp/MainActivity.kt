@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.provider.Telephony.Mms.Intents
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +29,13 @@ class MainActivity : ComponentActivity() {
         recycler.adapter = Adapter(tarefa)
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.layoutManager = LinearLayoutManager(this)
+
+        val toggle = findViewById<ImageButton>(R.id.botaoCima)
+        val abaClima = findViewById<LinearLayout>(R.id.abaClima)
+
+        toggle.setOnClickListener{
+            abaClima.visibility = View.VISIBLE
+        }
     }
 }
 
