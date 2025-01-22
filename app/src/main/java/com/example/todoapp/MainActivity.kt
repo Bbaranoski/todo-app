@@ -11,6 +11,7 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todoapp.api.clima
 import com.example.todoapp.models.tarefa
 import kotlinx.coroutines.launch
 
@@ -41,9 +42,10 @@ class MainActivity : ComponentActivity() {
 
         lifecycleScope.launch {
             try {
-
+                val resposta = clima().fetchWeather("Brazil", "c8b66c1912d946e96654fcaaf2cfb1ff")
+                println(resposta)
             } catch (e: Exception) {
-
+                println("Erro: ${e.message}")
             }
         }
     }
