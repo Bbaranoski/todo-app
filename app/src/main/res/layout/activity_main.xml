@@ -53,7 +53,7 @@
         android:id="@+id/botaoCima"
         android:layout_width="@dimen/paddingS"
         android:layout_height="@dimen/paddingS"
-        android:contentDescription="Toogle aba de cima"
+        android:contentDescription="Toggle aba de cima"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toTopOf="@+id/guide10"
         app:layout_constraintEnd_toEndOf="parent"
