@@ -8,9 +8,11 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.models.tarefa
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +37,14 @@ class MainActivity : ComponentActivity() {
 
         toggle.setOnClickListener{
             abaClima.visibility = View.VISIBLE
+        }
+
+        lifecycleScope.launch {
+            try {
+
+            } catch (e: Exception) {
+
+            }
         }
     }
 }
