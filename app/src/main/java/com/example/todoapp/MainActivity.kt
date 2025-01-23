@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.Guideline
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,15 +36,19 @@ class MainActivity : ComponentActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
 
         val botaoToggle = findViewById<ImageButton>(R.id.botaoCima)
-        val abaClima = findViewById<LinearLayout>(R.id.abaClima)
+        val guideToggle = findViewById<Guideline>(R.id.guideToggle)
+        var params = guideToggle.layoutParams as ConstraintLayout.LayoutParams
         var toggle = false
 
         botaoToggle.setOnClickListener{
             if(toggle == false){
                 toggle = true
-
+                params.guidePercent = 0.9f
+                guideToggle.layoutParams = params
             }else{
                 toggle = false
+                params.guidePercent = 0.1f
+                guideToggle.layoutParams = params
             }
         }
 

@@ -7,11 +7,11 @@
     android:background="@color/blueBG">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide90"
+        android:id="@+id/guideToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide10"
@@ -45,7 +45,7 @@
         android:layout_height="0dp"
         android:background="@color/blueBGforte"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/guide10"
+        app:layout_constraintBottom_toTopOf="@+id/guideToggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
