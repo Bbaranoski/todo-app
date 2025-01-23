@@ -33,11 +33,17 @@ class MainActivity : ComponentActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.layoutManager = LinearLayoutManager(this)
 
-        val toggle = findViewById<ImageButton>(R.id.botaoCima)
+        val botaoToggle = findViewById<ImageButton>(R.id.botaoCima)
         val abaClima = findViewById<LinearLayout>(R.id.abaClima)
+        var toggle = false
 
-        toggle.setOnClickListener{
-            abaClima.visibility = View.VISIBLE
+        botaoToggle.setOnClickListener{
+            if(toggle == false){
+                toggle = true
+
+            }else{
+                toggle = false
+            }
         }
 
         lifecycleScope.launch {
