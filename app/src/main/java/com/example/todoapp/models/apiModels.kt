@@ -1,16 +1,16 @@
 package com.example.todoapp.models
 
 data class climaResposta(
-    val nome: String,
-    val main: Any,
-    val clima: List<climaDescricao>
+    val name: String,
+    val main: mainData,
+    val weather: List<climaDescricao>
 )
 
 data class climaDescricao(
-    val descricao: String
+    val description: String
 )
 
 data class mainData(
     val temp: Double,
-    val umidade: Int
+    val humidity: Int
 )

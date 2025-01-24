@@ -2,11 +2,10 @@ package com.example.todoapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Telephony.Mms.Intents
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.Guideline
@@ -35,8 +34,10 @@ class MainActivity : ComponentActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.layoutManager = LinearLayoutManager(this)
 
+        // botão para descer o layout do clima
         val botaoToggle = findViewById<ImageButton>(R.id.botaoCima)
         val guideToggle = findViewById<Guideline>(R.id.guideToggle)
+        val constraintTemp = findViewById<ConstraintLayout>(R.id.constraintTemp)
         var params = guideToggle.layoutParams as ConstraintLayout.LayoutParams
         var toggle = false
 
@@ -45,17 +46,29 @@ class MainActivity : ComponentActivity() {
                 toggle = true
                 params.guidePercent = 0.9f
                 guideToggle.layoutParams = params
+                constraintTemp.visibility = View.VISIBLE
             }else{
                 toggle = false
                 params.guidePercent = 0.1f
                 guideToggle.layoutParams = params
+                constraintTemp.visibility = View.GONE
             }
         }
 
+        //consumindo a API
         lifecycleScope.launch {
             try {
-                val resposta = clima().fetchWeather("Brazil", "c8b66c1912d946e96654fcaaf2cfb1ff")
-                println(resposta)
+                val resposta = clima().fetchWeather("London", "c8b66c1912d946e96654fcaaf2cfb1ff")
+                println(resposta.body())
+                if (resposta.isSuccessful){
+                    val corpo = resposta.body()
+                    if (corpo != null){
+                        val temperatura = corpo.main.temp
+                        val temp = findViewById<TextView>(R.id.temp)
+                        temp.text = "Temperatura: ${temperatura}"
+                    }
+                }
+
             } catch (e: Exception) {
                 println("Erro: ${e.message}")
             }
