@@ -94,12 +94,15 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageButton
+            <Button
                 android:id="@+id/botaoCima"
                 android:layout_width="@dimen/paddingS"
                 android:layout_height="@dimen/paddingS"
+                android:paddingLeft="18dp"
+                android:layout_marginEnd="@dimen/marginM"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Toggle aba de cima"
+                android:drawableStart="@drawable/ic_arrow_down"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 

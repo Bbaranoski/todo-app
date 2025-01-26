@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +35,7 @@ class MainActivity : ComponentActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
 
         // botão para descer o layout do clima
-        val botaoToggle = findViewById<ImageButton>(R.id.botaoCima)
+        val botaoToggle = findViewById<Button>(R.id.botaoCima)
         val guideToggle = findViewById<Guideline>(R.id.guideToggle)
 
         // elementos da aba temp
