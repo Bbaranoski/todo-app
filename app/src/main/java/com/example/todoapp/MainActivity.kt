@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.api.clima
 import com.example.todoapp.models.tarefa
 import kotlinx.coroutines.launch
+import kotlin.math.roundToInt
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,9 +38,12 @@ class MainActivity : ComponentActivity() {
         // botão para descer o layout do clima
         val botaoToggle = findViewById<ImageButton>(R.id.botaoCima)
         val guideToggle = findViewById<Guideline>(R.id.guideToggle)
+
+        // elementos da aba temp
         val constraintTemp = findViewById<ConstraintLayout>(R.id.constraintTemp)
         var params = guideToggle.layoutParams as ConstraintLayout.LayoutParams
         var toggle = false
+        constraintTemp.visibility = View.GONE
 
         botaoToggle.setOnClickListener{
             if(toggle == false){
@@ -62,11 +66,15 @@ class MainActivity : ComponentActivity() {
                 println(resposta.body())
                 if (resposta.isSuccessful){
                     val corpo = resposta.body()
-                    if (corpo != null){
-                        val temperatura = corpo.main.temp
-                        val temp = findViewById<TextView>(R.id.temp)
-                        temp.text = "Temperatura: ${temperatura}"
-                    }
+
+                    val cidade = findViewById<TextView>(R.id.cidade)
+                    val temp = findViewById<TextView>(R.id.temp)
+                    val descricao = findViewById<TextView>(R.id.descricao)
+
+                    cidade.text = corpo?.name
+                    temp.text = "Temperatura: ${((corpo?.main?.temp ?: 0.0) - 273.15).roundToInt()} ºC"
+                    descricao.text = corpo?.weather?.firstOrNull()?.description ?: "Descrição indisponível"
+
                 }
 
             } catch (e: Exception) {
