@@ -50,11 +50,13 @@ class MainActivity : ComponentActivity() {
                 params.guidePercent = 0.9f
                 guideToggle.layoutParams = params
                 constraintTemp.visibility = View.VISIBLE
+                botaoToggle.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_arrow_up, 0, 0, 0)
             }else{
                 toggle = false
                 params.guidePercent = 0.1f
                 guideToggle.layoutParams = params
                 constraintTemp.visibility = View.GONE
+                botaoToggle.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_arrow_down, 0, 0, 0)
             }
         }
 
