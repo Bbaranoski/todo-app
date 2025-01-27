@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity() {
         //consumindo a API
         lifecycleScope.launch {
             try {
-                val resposta = clima().fetchWeather("London", "c8b66c1912d946e96654fcaaf2cfb1ff")
+                val resposta = clima().fetchWeather("Brasil", "c8b66c1912d946e96654fcaaf2cfb1ff")
                 println(resposta.body())
                 if (resposta.isSuccessful){
                     val corpo = resposta.body()

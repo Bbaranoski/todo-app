@@ -15,6 +15,7 @@ class Adapter(
     inner class itemView(view: View): RecyclerView.ViewHolder(view){
         val titulo = view.findViewById<TextView>(R.id.listaTitulo)
         val feito = view.findViewById<Switch>(R.id.listaFeito)
+        val listaDescricao = view.findViewById<TextView>(R.id.listaDescricao)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): itemView {
@@ -31,5 +32,9 @@ class Adapter(
 
         holder.titulo.text = Todo.titulo
         //holder.feito = Todo.concluido
+        holder.listaDescricao.visibility = View.GONE
+        holder.titulo.setOnClickListener {
+            holder.listaDescricao.visibility =  View.VISIBLE
+        }
     }
 }
