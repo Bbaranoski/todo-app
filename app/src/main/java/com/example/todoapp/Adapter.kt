@@ -29,12 +29,19 @@ class Adapter(
 
     override fun onBindViewHolder(holder: itemView, position: Int) {
         val Todo: todo = data[position]
+        var temp = false
 
         holder.titulo.text = Todo.titulo
         //holder.feito = Todo.concluido
         holder.listaDescricao.visibility = View.GONE
         holder.titulo.setOnClickListener {
-            holder.listaDescricao.visibility =  View.VISIBLE
+            if (temp == false){
+                temp = true
+                holder.listaDescricao.visibility =  View.VISIBLE
+            }else{
+                temp = false
+                holder.listaDescricao.visibility =  View.GONE
+            }
         }
     }
 }
