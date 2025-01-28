@@ -13,7 +13,7 @@ class Adapter(
 ): RecyclerView.Adapter<Adapter.itemView>() {
 
     inner class itemView(view: View): RecyclerView.ViewHolder(view){
-        val titulo = view.findViewById<TextView>(R.id.listaTitulo)
+        val listaTitulo = view.findViewById<TextView>(R.id.listaTitulo)
         val feito = view.findViewById<Switch>(R.id.listaFeito)
         val listaDescricao = view.findViewById<TextView>(R.id.listaDescricao)
     }
@@ -31,10 +31,15 @@ class Adapter(
         val Todo: todo = data[position]
         var temp = false
 
-        holder.titulo.text = Todo.titulo
+        holder.listaTitulo.text = Todo.titulo
         //holder.feito = Todo.concluido
+        if (Todo.descricao == "") {
+            holder.listaDescricao.text = "Sem descrição"
+        }else{
+            holder.listaDescricao.text = Todo.descricao
+        }
         holder.listaDescricao.visibility = View.GONE
-        holder.titulo.setOnClickListener {
+        holder.listaTitulo.setOnClickListener {
             if (temp == false){
                 temp = true
                 holder.listaDescricao.visibility =  View.VISIBLE
