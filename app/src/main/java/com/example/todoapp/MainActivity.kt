@@ -15,6 +15,7 @@ import com.example.todoapp.api.clima
 import com.example.todoapp.models.tarefa
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
+import com.example.todoapp.models.edita
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +25,7 @@ class MainActivity : ComponentActivity() {
         // botão que troca para a tela input
         val botao = findViewById<Button>(R.id.add)
         botao.setOnClickListener{
+            edita = false
             val intent = Intent(this, Input::class.java)
             startActivity(intent)
         }

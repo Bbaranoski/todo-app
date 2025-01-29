@@ -8,6 +8,7 @@ import androidx.activity.ComponentActivity
 import com.example.todoapp.models.tarefa
 import com.example.todoapp.models.todo
 import com.example.todoapp.models.id
+import com.example.todoapp.models.edita
 
 class Input : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,16 +20,18 @@ class Input : ComponentActivity() {
 
         val confirmar = findViewById<Button>(R.id.confirmar)
         confirmar.setOnClickListener {
-            val tempTitulo = tituloInput.text.toString()
-            val tempDescricao = descricaoInput.text.toString()
+            if(edita == false){
+                val tempTitulo = tituloInput.text.toString()
+                val tempDescricao = descricaoInput.text.toString()
 
-            tarefa.add(todo(id, tempTitulo, tempDescricao, false))
+                tarefa.add(todo(id, tempTitulo, tempDescricao, false))
 
-            id++
+                id++
 
-            println(tarefa)
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+                println(tarefa)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         val cancelar = findViewById<Button>(R.id.cancelar)

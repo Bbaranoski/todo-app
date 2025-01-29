@@ -4,6 +4,7 @@ package com.example.todoapp.models
 val tarefa = mutableListOf<todo>()
 
 var id: Int = 0
+var edita: Boolean = false
 
 // object constructor das tarefas criadas
 data class todo(

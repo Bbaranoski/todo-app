@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.models.todo
 
@@ -16,6 +17,7 @@ class Adapter(
         val listaTitulo = view.findViewById<TextView>(R.id.listaTitulo)
         val feito = view.findViewById<Switch>(R.id.listaFeito)
         val listaDescricao = view.findViewById<TextView>(R.id.listaDescricao)
+        val listaDescContraint = view.findViewById<ConstraintLayout>(R.id.listaDescContraint)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): itemView {
@@ -38,14 +40,14 @@ class Adapter(
         }else{
             holder.listaDescricao.text = Todo.descricao
         }
-        holder.listaDescricao.visibility = View.GONE
+        holder.listaDescContraint.visibility = View.GONE
         holder.listaTitulo.setOnClickListener {
             if (temp == false){
                 temp = true
-                holder.listaDescricao.visibility =  View.VISIBLE
+                holder.listaDescContraint.visibility =  View.VISIBLE
             }else{
                 temp = false
-                holder.listaDescricao.visibility =  View.GONE
+                holder.listaDescContraint.visibility =  View.GONE
             }
         }
     }
