@@ -9,6 +9,7 @@ import com.example.todoapp.models.tarefa
 import com.example.todoapp.models.todo
 import com.example.todoapp.models.id
 import com.example.todoapp.models.edita
+import com.example.todoapp.models.editaId
 
 class Input : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +30,15 @@ class Input : ComponentActivity() {
                 id++
 
                 println(tarefa)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }else{
+                val itemTemp = tarefa[editaId]
+
+                itemTemp.titulo = tituloInput.text.toString()
+                itemTemp.descricao = descricaoInput.text.toString()
+                println(tarefa[editaId])
+
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
