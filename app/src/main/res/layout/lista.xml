@@ -44,9 +44,11 @@
 
             <Button
                 android:id="@+id/listaBotaoEdita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button"
+                android:layout_width="@dimen/paddingS"
+                android:layout_height="@dimen/paddingS"
+                android:paddingLeft="18dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Botão para editar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
