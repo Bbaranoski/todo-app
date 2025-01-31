@@ -19,6 +19,12 @@ class Input : ComponentActivity() {
         val tituloInput = findViewById<EditText>(R.id.tituloInput)
         val descricaoInput = findViewById<EditText>(R.id.descricaoInput)
 
+        if(edita == true){
+            val itemTemp = tarefa[editaId]
+            tituloInput.setText(itemTemp.titulo)
+            descricaoInput.setText(itemTemp.descricao)
+        }
+
         val confirmar = findViewById<Button>(R.id.confirmar)
         confirmar.setOnClickListener {
             if(edita == false){
@@ -34,7 +40,6 @@ class Input : ComponentActivity() {
                 startActivity(intent)
             }else{
                 val itemTemp = tarefa[editaId]
-
                 itemTemp.titulo = tituloInput.text.toString()
                 itemTemp.descricao = descricaoInput.text.toString()
                 println(tarefa[editaId])
