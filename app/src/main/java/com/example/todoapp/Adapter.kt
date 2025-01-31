@@ -19,7 +19,7 @@ class Adapter(
 
     inner class itemView(view: View): RecyclerView.ViewHolder(view){
         val listaTitulo = view.findViewById<TextView>(R.id.listaTitulo)
-        val feito = view.findViewById<Switch>(R.id.listaFeito)
+        val listaFeito = view.findViewById<Switch>(R.id.listaFeito)
         val listaDescricao = view.findViewById<TextView>(R.id.listaDescricao)
         val listaDescContraint = view.findViewById<ConstraintLayout>(R.id.listaDescContraint)
         val listaBotaoEdita = view.findViewById<Button>(R.id.listaBotaoEdita)
@@ -39,7 +39,6 @@ class Adapter(
         var temp = false
 
         holder.listaTitulo.text = Todo.titulo
-        //holder.feito = Todo.concluido
         // aplicar descrição na lista e fazer um toogle que deixa ela invisivel/visivel
         if (Todo.descricao == "") {
             holder.listaDescricao.text = "Sem descrição"
@@ -64,6 +63,16 @@ class Adapter(
             println(editaId)
             val intent = Intent(holder.itemView.context, Input::class.java)
             holder.itemView.context.startActivity(intent)
+        }
+
+        // configuração do switch para definir se vai estar marcado ou não
+        holder.listaFeito.isChecked = Todo.concluido
+        holder.listaFeito.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked){
+                Todo.concluido = true
+            }else{
+                Todo.concluido = false
+            }
         }
     }
 }
