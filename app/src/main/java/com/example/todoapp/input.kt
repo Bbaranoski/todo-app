@@ -27,25 +27,27 @@ class Input : ComponentActivity() {
 
         val confirmar = findViewById<Button>(R.id.confirmar)
         confirmar.setOnClickListener {
-            if(edita == false){
-                val tempTitulo = tituloInput.text.toString()
-                val tempDescricao = descricaoInput.text.toString()
+            val tempTitulo = tituloInput.text.toString()
 
-                tarefa.add(todo(id, tempTitulo, tempDescricao, false))
-
-                id++
-
-                println(tarefa)
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+            if(tempTitulo.isEmpty()){
+                tituloInput.error = "Este campo é obrigatório"
             }else{
-                val itemTemp = tarefa[editaId]
-                itemTemp.titulo = tituloInput.text.toString()
-                itemTemp.descricao = descricaoInput.text.toString()
-                println(tarefa[editaId])
+                if(edita == false){
+                    val tempDescricao = descricaoInput.text.toString()
+                    tarefa.add(todo(id, tempTitulo, tempDescricao, false))
+                    id++
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }else{
+                    val itemTemp = tarefa[editaId]
+                    itemTemp.titulo = tituloInput.text.toString()
+                    itemTemp.descricao = descricaoInput.text.toString()
+                    println(tarefa[editaId])
+
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
 
