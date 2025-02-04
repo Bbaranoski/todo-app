@@ -27,6 +27,7 @@
         android:layout_marginEnd="@dimen/marginM"
         android:layout_marginBottom="@dimen/marginM"
         android:text="+"
+        android:background="@color/esmerald"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
