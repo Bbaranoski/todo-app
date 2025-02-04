@@ -36,6 +36,9 @@
         android:ems="10"
         android:hint="Título"
         android:inputType="text"
+        android:maxLength="15"
+        android:gravity="center"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +50,7 @@
         android:ems="10"
         android:hint="Descrição"
         android:inputType="textMultiLine"
-        android:gravity="top|start"
+        android:gravity="center"
         android:maxLines="5"
         android:scrollbars="vertical"
         android:overScrollMode="always"
